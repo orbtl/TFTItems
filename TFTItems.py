@@ -16,5 +16,21 @@ RB: {baseItems["RB"]}
 Tear: {baseItems["Tear"]}
 Spat: {baseItems["Spat"]}
 """)
-userInventory = {}
+userInventory = []
+print("Enter your items, separated by Enter.  When you are done press enter again.")
+isEmpty = False
+while isEmpty == False:
+    newItem = input("Item? ")
+    if len(newItem) > 0:
+        if newItem in baseItems:
+            userInventory.append(newItem)
+            print(f"You added a {baseItems[newItem]}")
+        else:
+            print("Invalid Item Code.  Try again.")
+    else:
+        isEmpty = True
+        print(f"Your items are: {userInventory}")
+
+
+
 
