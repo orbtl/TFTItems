@@ -8,6 +8,7 @@ baseItems = {
     "Spat": "Spatula"
 }
 userInventory = []
+combinedItems = []
 
 def printInventory():
     inventoryString = ', '.join([baseItems[item] for item in userInventory])
@@ -37,6 +38,7 @@ def getItems():
                 print("Invalid Item Code.  Try again.")
         else:
             isEmpty = True
+            userInventory.sort()
             printInventory()
 
 
