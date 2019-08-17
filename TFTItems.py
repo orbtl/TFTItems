@@ -2,10 +2,27 @@ baseItems = {
     "BF": "B.F. Sword",
     "CV": "Chain Vest",
     "GB": "Giant's Belt",
+    "NC": "Negatron Cloak",
     "NLR": "Needlessly Large Rod",
     "RB": "Recurve Bow",
-    "Tear": "Tear of the Goddess",
     "Spat": "Spatula"
+    "Tear": "Tear of the Goddess",
+
+}
+fullItems = {
+    "BFBF": "Infinity Edge",
+    "BFCV": "Guardian Angel",
+    "BFGB": "Zeke's Herald",
+    "BFNC": "Bloodthirster",
+    "BFNLR": "Hextech Gunblade",
+    "BFRB": "Sword Of The Divine",
+    "BFSpat": "Youmou's Ghostblade",
+    "BFTear": "Spear of Shojin",
+    "CVCV": "Thornmail",
+    "CVGB": "Red Buff",
+    "CVNC": "Sword Breaker",
+    "CVNLR": "Locket of the Iron Solari",
+    "CVRB":
 }
 userInventory = []
 combinedItems = []
@@ -40,6 +57,7 @@ def getItems():
             isEmpty = True
             userInventory.sort()
             printInventory()
+
 
 
 printBaseItems()
