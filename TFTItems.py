@@ -8,9 +8,9 @@ baseItems = {
     "Spat": "Spatula"
 }
 
-def printInventory()
-inventoryString = ', '.join([baseItems[item] for item in userInventory])
-print(inventoryString)
+def printInventory():
+    inventoryString = ', '.join([baseItems[item] for item in userInventory])
+    print("Your current items: " + inventoryString)
 
 
 print(f"""These are the available item codes, followed by their name
@@ -35,7 +35,7 @@ while isEmpty == False:
             print("Invalid Item Code.  Try again.")
     else:
         isEmpty = True
-        print(f"Your items are: {userInventory}")
+        printInventory()
 
 
 
