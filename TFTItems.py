@@ -5,9 +5,8 @@ baseItems = {
     "NC": "Negatron Cloak",
     "NLR": "Needlessly Large Rod",
     "RB": "Recurve Bow",
-    "Spat": "Spatula"
-    "Tear": "Tear of the Goddess",
-
+    "Spat": "Spatula",
+    "Tear": "Tear of the Goddess"
 }
 fullItems = {
     "BFBF": "Infinity Edge",
@@ -22,7 +21,30 @@ fullItems = {
     "CVGB": "Red Buff",
     "CVNC": "Sword Breaker",
     "CVNLR": "Locket of the Iron Solari",
-    "CVRB":
+    "CVRB": "Phantom Dancer",
+    "CVSpat": "Knight's Vow",
+    "CVTear": "Frozen Heart",
+    "GBGB": "Warmog's Armor",
+    "GBNC": "Zephyr",
+    "GBNLR": "Morellonomicon",
+    "GBRB": "Titanic Hydra",
+    "GBSpat": "Frozen Mallet",
+    "GBTear": "Redemption",
+    "NCNC": "Dragon's Claw",
+    "NCNLR": "Ionic Spark",
+    "NCRB": "Cursed Blade",
+    "NCSpat": "Hurricane",
+    "NCTear": "Hush",
+    "NLRNLR": "Rabadon's Deathcap",
+    "NLRRB": "Guinsoo's Rageblade",
+    "NLRSpat": "Yuumi",
+    "NLRTear": "Luden's Echo",
+    "RBRB": "Rapidfire Cannon",
+    "RBSpat": "Blade of the Ruined King",
+    "RBTear": "Statikk Shiv",
+    "SpatSpat": "Force of Nature",
+    "SpatTear": "Darkin",
+    "TearTear": "Seraph's Embrace"
 }
 userInventory = []
 combinedItems = []
