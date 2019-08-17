@@ -7,6 +7,12 @@ baseItems = {
     "Tear": "Tear of the Goddess",
     "Spat": "Spatula"
 }
+
+def printInventory()
+inventoryString = ', '.join([baseItems[item] for item in userInventory])
+print(inventoryString)
+
+
 print(f"""These are the available item codes, followed by their name
 BF: {baseItems["BF"]}
 CV: {baseItems["CV"]}
