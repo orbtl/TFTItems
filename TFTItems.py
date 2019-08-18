@@ -109,8 +109,11 @@ doubleInventory = []
 quitProgram = False
 
 def printInventory():
-    inventoryString = ', '.join([baseItems[item] for item in userInventory])
-    print("Your current items: " + inventoryString)
+    if len(userInventory) > 0:
+        inventoryString = ', '.join([baseItems[item] for item in userInventory])
+        print("Your current items: " + inventoryString)
+    else:
+        print("You do not have any items stored.")
 
 def printBaseItems():
     print(f"""These are the available item codes, followed by their name
@@ -140,8 +143,11 @@ def getItems():
             printInventory()
 
 def printCompleteItems():
-    fullItemString = ', '.join([fullItems[item] for item in doubleInventory])
-    print("You can build the following items: " + fullItemString)
+    if len(doubleInventory) > 0:
+        fullItemString = ', '.join([fullItems[item] for item in doubleInventory])
+        print("You can build the following items: " + fullItemString)
+    else:
+        print("You cannot build any items... YET!")
 
 def findCompleteItems():
     for i in range(len(userInventory)):
@@ -160,11 +166,15 @@ def findChampions():
         championRecStr += fullItems[item] + ": " + championRec + "\n"
     print(championRecStr)
 
+def mainItemFunction():
+    printBaseItems()
+    getItems()
+    findCompleteItems()
+    findChampions()
 
-printBaseItems()
-getItems()
-findCompleteItems()
-findChampions()
+
+mainItemFunction()
+
 while quitProgram == False:
     print("""Enter a number for what you would like to do:
     1: Add more items
@@ -177,15 +187,9 @@ while quitProgram == False:
     elif userAction == "2":
         userInventory = []
         printInventory()
-        printBaseItems()
-        getItems()
-        findCompleteItems()
-        findChampions()
+        mainItemFunction()
     elif userAction == "1":
         printInventory()
-        printBaseItems()
-        getItems()
-        findCompleteItems()
-        findChampions()
+        mainItemFunction()
     else:
         print("Invalid entry.  Try again.")
