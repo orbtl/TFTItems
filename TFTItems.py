@@ -106,6 +106,7 @@ championGuide = {
 userInventory = []
 combinedItems = []
 doubleInventory = []
+quitProgram = False
 
 def printInventory():
     inventoryString = ', '.join([baseItems[item] for item in userInventory])
@@ -164,3 +165,27 @@ printBaseItems()
 getItems()
 findCompleteItems()
 findChampions()
+while quitProgram == False:
+    print("""Enter a number for what you would like to do:
+    1: Add more items
+    2: Clear all current items
+    3: Quit""")
+    userAction = input("? ")
+    if userAction == "3":
+        quitProgram = True
+        break
+    elif userAction == "2":
+        userInventory = []
+        printInventory()
+        printBaseItems()
+        getItems()
+        findCompleteItems()
+        findChampions()
+    elif userAction == "1":
+        printInventory()
+        printBaseItems()
+        getItems()
+        findCompleteItems()
+        findChampions()
+    else:
+        print("Invalid entry.  Try again.")
