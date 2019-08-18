@@ -48,6 +48,7 @@ fullItems = {
 }
 userInventory = []
 combinedItems = []
+doubleInventory = []
 
 def printInventory():
     inventoryString = ', '.join([baseItems[item] for item in userInventory])
@@ -79,6 +80,15 @@ def getItems():
             isEmpty = True
             userInventory.sort()
             printInventory()
+
+def findCompleteItems():
+    for i in range(len(userInventory)):
+        for j in range(i+1, len(userInventory)):
+            if (userInventory[i] + userInventory[j]) not in doubleInventory:
+                doubleInventory.append(userInventory[i] + userInventory[j])
+                print(doubleInventory)
+
+
 
 
 
