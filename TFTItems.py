@@ -47,7 +47,18 @@ fullItems = {
     "TearTear": "Seraph's Embrace"
 }
 championGuide = {
-    "Graves": ["RBRB", "SpatSpat", "TearTear"]
+    "Graves": ["CVGB", "GBRB", "BFBF"],
+    "Kha'Zix": ["RBRB", "BFBF", "TearTear", "NLRTear"],
+    "Pyke": ["BFTear", "CVTear", "GBNLR", "SpatTear"],
+    "Zed": ["RBRB", "BFBF", "BFNC", "BFGB"],
+    "Katarina": ["GBNLR", "BFNLR", "NLRNLR", "NLRSpat"],
+    "Evelynn": ["TearTear", "GBNLR", "NLRNLR", "NLRSpat"],
+    "Rengar": ["RBRB", "BFCV", "BFNC", "NCNC"],
+    "Akali": ["TearTear", "NCNC", "BFNLR", "CVRB", "GBGB", "BFCV"],
+    "Fiora": ["RBTear", "BFNLR", "BFNC", "RBRB"],
+    "Shen": ["NCNC", "CVCV", "BFCV", "GBGB"],
+    "Aatrox": ["BFNLR", "BFCV", "NCNC", "CVRB", "NLRSpat"],
+    "Gangplank": ["NCTear", "GBCV", ""]
 }
 userInventory = []
 combinedItems = []
@@ -96,7 +107,7 @@ def findCompleteItems():
     printCompleteItems()
 
 def findChampions():
-    championRecStr = "Recommended Champions Based on items: \n"
+    championRecStr = "Recommended Champions Based on items (by Scarra): \n"
     championRec = ""
     for item in doubleInventory:
         for name, itemChoices in championGuide.items():
