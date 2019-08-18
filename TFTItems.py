@@ -148,8 +148,8 @@ def findCompleteItems():
 
 def findChampions():
     championRecStr = "Recommended Champions Based on items (by Scarra): \n"
-    championRec = ""
     for item in doubleInventory:
+        championRec = ""
         for name, itemChoices in championGuide.items():
             if item in itemChoices:
                 championRec += name + ", "
