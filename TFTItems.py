@@ -76,7 +76,6 @@ championGuide = {
     "Graves": ["CVGB", "GBRB", "BFBF"],
     "Tristana": ["NCRB", "NCTear", "RBSpat", "BFBF", "GBRB"],
     "Lucian": ["NCRB", "NCTear", "CVGB", "NLRTear", "CVNC", "TearTear"],
-    "Gangplank": ["NCTear", "CVGB", "GBNLR", "BFTear", "BFCV", "CVNC"],
     "Miss Fortune": ["TearTear", "GBNLR", "BFCV"],
     "Darius": ["GBGB", "NCNC"],
     "Garen": ["NCNC", "GBGB", "CVRB", "GBNLR"],
@@ -147,7 +146,7 @@ def findCompleteItems():
     printCompleteItems()
 
 def findChampions():
-    championRecStr = "Recommended Champions Based on items (by Scarra): \n"
+    championRecStr = "Scarra's Recommended Champions Based on items: \n"
     for item in doubleInventory:
         championRec = ""
         for name, itemChoices in championGuide.items():
