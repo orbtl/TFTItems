@@ -52,7 +52,6 @@ championGuide = {
 userInventory = []
 combinedItems = []
 doubleInventory = []
-championRecs = ""
 
 def printInventory():
     inventoryString = ', '.join([baseItems[item] for item in userInventory])
@@ -97,13 +96,17 @@ def findCompleteItems():
     printCompleteItems()
 
 def findChampions():
+    championRecStr = "Recommended Champions Based on items: \n"
+    championRec = ""
     for item in doubleInventory:
         for name, itemChoices in championGuide.items():
             if item in itemChoices:
-                print(item + " " + name)
-
+                championRec += name + ", "
+        championRecStr += fullItems[item] + ": " + championRec + "\n"
+    print(championRecStr)
 
 
 printBaseItems()
 getItems()
 findCompleteItems()
+findChampions()
