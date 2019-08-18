@@ -46,9 +46,13 @@ fullItems = {
     "SpatTear": "Darkin",
     "TearTear": "Seraph's Embrace"
 }
+championGuide = {
+    "Graves": ["RBRB", "SpatSpat", "TearTear"]
+}
 userInventory = []
 combinedItems = []
 doubleInventory = []
+championRecs = ""
 
 def printInventory():
     inventoryString = ', '.join([baseItems[item] for item in userInventory])
@@ -92,7 +96,11 @@ def findCompleteItems():
                 doubleInventory.append(userInventory[i] + userInventory[j])
     printCompleteItems()
 
-
+def findChampions():
+    for item in doubleInventory:
+        for name, itemChoices in championGuide.items():
+            if item in itemChoices:
+                print(item + " " + name)
 
 
 
