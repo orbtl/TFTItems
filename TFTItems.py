@@ -81,12 +81,16 @@ def getItems():
             userInventory.sort()
             printInventory()
 
+def printCompleteItems():
+    fullItemString = ', '.join([fullItems[item] for item in doubleInventory])
+    print("You can build the following items: " + fullItemString)
+
 def findCompleteItems():
     for i in range(len(userInventory)):
         for j in range(i+1, len(userInventory)):
             if (userInventory[i] + userInventory[j]) not in doubleInventory:
                 doubleInventory.append(userInventory[i] + userInventory[j])
-                print(doubleInventory)
+    printCompleteItems()
 
 
 
@@ -94,4 +98,4 @@ def findCompleteItems():
 
 printBaseItems()
 getItems()
-
+findCompleteItems()
