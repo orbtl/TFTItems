@@ -2,13 +2,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 baseItems = {
     "BF": {"name": "B.F. Sword", "icon": icon1},
-    "CV": "Chain Vest",
-    "GB": "Giant's Belt",
-    "NC": "Negatron Cloak",
-    "NLR": "Needlessly Large Rod",
-    "RB": "Recurve Bow",
-    "Spat": "Spatula",
-    "Tear": "Tear of the Goddess"
+    "CV": {"name": "Chain Vest", "icon": icon2},
+    "GB": {"name": "Giant's Belt", "icon": icon3},
+    "NC": {"name": "Negatron Cloak", "icon": icon4},
+    "NLR": {"name": "Needlessly Large Rod", "icon": icon5},
+    "RB": {"name": "Recurve Bow", "icon": icon6},
+    "Spat": {"name": "Spatula", "icon": icon7},
+    "Tear": {"name": "Tear of the Goddess", "icon": icon8},
 }
 fullItems = {
     "BFBF": {"name": "Infinity Edge", "icon": icon10},
@@ -49,61 +49,61 @@ fullItems = {
     "TearTear": {"name": "Seraph's Embrace", "icon": icon45},
 }
 championGuide = {
-    "Kha'Zix": ["RBRB", "BFBF", "TearTear", "NLRTear"],
-    "Pyke": ["BFTear", "CVTear", "GBNLR", "SpatTear"],
-    "Zed": ["RBRB", "BFBF", "BFNC", "BFGB"],
-    "Katarina": ["GBNLR", "BFNLR", "NLRNLR", "NLRSpat"],
-    "Evelynn": ["TearTear", "GBNLR", "NLRNLR", "NLRSpat"],
-    "Rengar": ["RBRB", "BFCV", "BFNC", "NCNC"],
-    "Akali": ["TearTear", "NCNC", "BFNLR", "CVRB", "GBGB", "BFCV"],
-    "Camille": [],
-    "Fiora": ["RBTear", "BFNLR", "BFNC", "RBRB"],
-    "Shen": ["NCNC", "CVCV", "BFCV", "GBGB"],
-    "Aatrox": ["BFNLR", "BFCV", "NCNC", "CVRB", "NLRSpat"],
-    "Gangplank": ["NCTear", "GBCV", "GBNLR", "BFTear", "BFCV", "CVNC"],
-    "Draven": ["RBRB", "BFNC", "NLRRB", "NCNC", "BFBF", "CVRB", "BFCV"],
-    "Yasuo": ["TearTear", "CVGB", "GBGB", "NCTear", "CVNC", "NCNC"],
-    "Lissandra": [],
-    "Kennen": ["GBNLR", "BFCV", "NLRNLR", "NCNC", "CVRB"],
-    "Brand": ["BFTear", "RBRB", "GBNLR"],
-    "Anivia": ["GBNLR", "NLRNLR", "TearTear"],
-    "Warwick": [],
-    "Vi": ["CVTear", "GBGB", "NLRSpat", "GBNLR", "BFTear"],
-    "Rek'Sai": ["BFTear", "NLRRB", "RBRB", "CVRB", "GBGB", "BFCV"],
-    "Blitzcrank": ["NLRNLR", "BFTear"],
-    "Volibear": ["RBRB", "SpatTear", "BFBF", "GBRB", "NCSpat", "GBCV", "BFNC"],
-    "Cho'Gath": ["TearTear", "BFCV", "GBNLR", "NLRNLR", "RBRB", "NLRSpat"],
-    "Vayne": ["RBTear", "GBRB", "RBRB", "NLRRB"],
-    "Varus": ["BFTear", "GBNLR", "NLRRB", "RBTear", "NLRNLR", "NLRSpat"],
-    "Ashe": ["RBTear", "RBRB", "NLRRB", "BFTear"],
-    "Kindred": ["NLRSpat", "BFCV", "CVRB", "RBTear"],
-    "Graves": ["CVGB", "GBRB", "BFBF"],
-    "Jinx": ["NCSpat", "RBSpat", "RBRB", "BFNC", "NLRRB", "CVGB"],
-    "Tristana": ["NCRB", "NCTear", "RBSpat", "BFBF", "GBRB"],
-    "Lucian": ["NCRB", "NCTear", "CVGB", "NLRTear", "CVNC", "TearTear"],
-    "Miss Fortune": ["TearTear", "GBNLR", "BFCV"],
-    "Darius": ["GBGB", "NCNC"],
-    "Garen": ["NCNC", "GBGB", "CVRB", "GBNLR"],
-    "Mordekaiser": [],
-    "Poppy": ["NLRSpat", "NCNC", "CVRB", "GBGB", "NCNLR"],
-    "Sejuani": ["GBNLR", "BFCV", "NCNC", "CVRB", "GBGB"],
-    "Kayle": ["RBSpat", "NLRSpat", "BFTear", "RBTear", "NCSpat", "NLRRB", "RBRB"],
-    "Braum": ["CVCV", "NCNC", "GBGB"],
-    "Leona": ["NLRTear", "TearTear"],
-    "Kassadin": ["RBRB", "NLRRB", "NCNC", "CVRB", "BFNC", "NLRNLR"],
-    "Ahri": ["RBTear", "NLRTear", "TearTear", "GBNLR", "NLRNLR"],
-    "Twisted Fate": ["RBTear", "TearTear", "NLRTear", "RBRB"],
-    "Lulu": ["BFTear", "NLRRB", "NLRNLR", "NCNLR"],
-    "Veigar": ["TearTear", "BFNLR", "NCNC", "CVRB", "RBRB"],
-    "Morgana": ["NLRNLR", "GBNLR", "CVTear", "TearTear", "NCNC", "BFCV"],
-    "Aurelion Sol": ["RBRB", "BFTear", "NLRNLR", "GBNLR"],
-    "Karthus": ["GBNLR", "NLRNLR", "BFTear", "TearTear"],
-    "Nidalee": ["RBRB", "RBTear", "BFNC"],
-    "Elise": ["GBGB", "CVTear"],
-    "Jayce": [],
-    "Shyvana": ["GBGB", "CVCV", "CVRB", "RBRB", "BFNC", "NLRRB"],
-    "Gnar": ["GBGB", "GBRB", "CVRB", "NCNC"],
-    "Swain": ["GBGB", "NLRNLR", "BFNLR", "GBNLR", "BFCV", "TearTear", "NCNC", "CVRB"]
+    "Kha'Zix": {"items": ['RBRB', 'BFBF', 'TearTear', 'NLRTear'], "icon": icon100},
+    "Pyke": {"items": ['BFTear', 'CVTear', 'GBNLR', 'SpatTear'], "icon": icon101},
+    "Zed": {"items": ['RBRB', 'BFBF', 'BFNC', 'BFGB'], "icon": icon102},
+    "Katarina": {"items": ['GBNLR', 'BFNLR', 'NLRNLR', 'NLRSpat'], "icon": icon103},
+    "Evelynn": {"items": ['TearTear', 'GBNLR', 'NLRNLR', 'NLRSpat'], "icon": icon104},
+    "Rengar": {"items": ['RBRB', 'BFCV', 'BFNC', 'NCNC'], "icon": icon105},
+    "Akali": {"items": ['TearTear', 'NCNC', 'BFNLR', 'CVRB', 'GBGB', 'BFCV'], "icon": icon106},
+    "Camille": {"items": [], "icon": icon107},
+    "Fiora": {"items": ['RBTear', 'BFNLR', 'BFNC', 'RBRB'], "icon": icon108},
+    "Shen": {"items": ['NCNC', 'CVCV', 'BFCV', 'GBGB'], "icon": icon109},
+    "Aatrox": {"items": ['BFNLR', 'BFCV', 'NCNC', 'CVRB', 'NLRSpat'], "icon": icon110},
+    "Gangplank": {"items": ['NCTear', 'GBCV', 'GBNLR', 'BFTear', 'BFCV', 'CVNC'], "icon": icon111},
+    "Draven": {"items": ['RBRB', 'BFNC', 'NLRRB', 'NCNC', 'BFBF', 'CVRB', 'BFCV'], "icon": icon112},
+    "Yasuo": {"items": ['TearTear', 'CVGB', 'GBGB', 'NCTear', 'CVNC', 'NCNC'], "icon": icon113},
+    "Lissandra": {"items": [], "icon": icon114},
+    "Kennen": {"items": ['GBNLR', 'BFCV', 'NLRNLR', 'NCNC', 'CVRB'], "icon": icon115},
+    "Brand": {"items": ['BFTear', 'RBRB', 'GBNLR'], "icon": icon116},
+    "Anivia": {"items": ['GBNLR', 'NLRNLR', 'TearTear'], "icon": icon117},
+    "Warwick": {"items": [], "icon": icon118},
+    "Vi": {"items": ['CVTear', 'GBGB', 'NLRSpat', 'GBNLR', 'BFTear'], "icon": icon119},
+    "Rek'Sai": {"items": ['BFTear', 'NLRRB', 'RBRB', 'CVRB', 'GBGB', 'BFCV'], "icon": icon120},
+    "Blitzcrank": {"items": ['NLRNLR', 'BFTear'], "icon": icon121},
+    "Volibear": {"items": ['RBRB', 'SpatTear', 'BFBF', 'GBRB', 'NCSpat', 'GBCV', 'BFNC'], "icon": icon122},
+    "Cho'Gath": {"items": ['TearTear', 'BFCV', 'GBNLR', 'NLRNLR', 'RBRB', 'NLRSpat'], "icon": icon123},
+    "Vayne": {"items": ['RBTear', 'GBRB', 'RBRB', 'NLRRB'], "icon": icon124},
+    "Varus": {"items": ['BFTear', 'GBNLR', 'NLRRB', 'RBTear', 'NLRNLR', 'NLRSpat'], "icon": icon125},
+    "Ashe": {"items": ['RBTear', 'RBRB', 'NLRRB', 'BFTear'], "icon": icon126},
+    "Kindred": {"items": ['NLRSpat', 'BFCV', 'CVRB', 'RBTear'], "icon": icon127},
+    "Graves": {"items": ['CVGB', 'GBRB', 'BFBF'], "icon": icon128},
+    "Jinx": {"items": ['NCSpat', 'RBSpat', 'RBRB', 'BFNC', 'NLRRB', 'CVGB'], "icon": icon129},
+    "Tristana": {"items": ['NCRB', 'NCTear', 'RBSpat', 'BFBF', 'GBRB'], "icon": icon130},
+    "Lucian": {"items": ['NCRB', 'NCTear', 'CVGB', 'NLRTear', 'CVNC', 'TearTear'], "icon": icon131},
+    "Miss Fortune": {"items": ['TearTear', 'GBNLR', 'BFCV'], "icon": icon132},
+    "Darius": {"items": ['GBGB', 'NCNC'], "icon": icon133},
+    "Garen": {"items": ['NCNC', 'GBGB', 'CVRB', 'GBNLR'], "icon": icon134},
+    "Mordekaiser": {"items": [], "icon": icon135},
+    "Poppy": {"items": ['NLRSpat', 'NCNC', 'CVRB', 'GBGB', 'NCNLR'], "icon": icon136},
+    "Sejuani": {"items": ['GBNLR', 'BFCV', 'NCNC', 'CVRB', 'GBGB'], "icon": icon137},
+    "Kayle": {"items": ['RBSpat', 'NLRSpat', 'BFTear', 'RBTear', 'NCSpat', 'NLRRB', 'RBRB'], "icon": icon138},
+    "Braum": {"items": ['CVCV', 'NCNC', 'GBGB'], "icon": icon139},
+    "Leona": {"items": ['NLRTear', 'TearTear'], "icon": icon140},
+    "Kassadin": {"items": ['RBRB', 'NLRRB', 'NCNC', 'CVRB', 'BFNC', 'NLRNLR'], "icon": icon141},
+    "Ahri": {"items": ['RBTear', 'NLRTear', 'TearTear', 'GBNLR', 'NLRNLR'], "icon": icon142},
+    "Twisted Fate": {"items": ['RBTear', 'TearTear', 'NLRTear', 'RBRB'], "icon": icon143},
+    "Lulu": {"items": ['BFTear', 'NLRRB', 'NLRNLR', 'NCNLR'], "icon": icon144},
+    "Veigar": {"items": ['TearTear', 'BFNLR', 'NCNC', 'CVRB', 'RBRB'], "icon": icon145},
+    "Morgana": {"items": ['NLRNLR', 'GBNLR', 'CVTear', 'TearTear', 'NCNC', 'BFCV'], "icon": icon146},
+    "Aurelion Sol": {"items": ['RBRB', 'BFTear', 'NLRNLR', 'GBNLR'], "icon": icon147},
+    "Karthus": {"items": ['GBNLR', 'NLRNLR', 'BFTear', 'TearTear'], "icon": icon148},
+    "Nidalee": {"items": ['RBRB', 'RBTear', 'BFNC'], "icon": icon149},
+    "Elise": {"items": ['GBGB', 'CVTear'], "icon": icon150},
+    "Jayce": {"items": [], "icon": icon151},
+    "Shyvana": {"items": ['GBGB', 'CVCV', 'CVRB', 'RBRB', 'BFNC', 'NLRRB'], "icon": icon152},
+    "Gnar": {"items": ['GBGB', 'GBRB', 'CVRB', 'NCNC'], "icon": icon153},
+    "Swain": {"items": ['GBGB', 'NLRNLR', 'BFNLR', 'GBNLR', 'BFCV', 'TearTear', 'NCNC', 'CVRB'], "icon": icon154},
 }
 
 
@@ -361,7 +361,116 @@ class Ui_MainWindow(object):
         icon45 = QtGui.QIcon()
         icon45.addPixmap(QtGui.QPixmap(":/imgBase/img/combined/Seraphs_Embrace_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
-
+        icon100 = QtGui.QIcon()
+        icon100.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KhaZixSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon101 = QtGui.QIcon()
+        icon101.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/PykeSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon102 = QtGui.QIcon()
+        icon102.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/ZedSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon103 = QtGui.QIcon()
+        icon103.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KatarinaSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon104 = QtGui.QIcon()
+        icon104.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/EvelynnSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon105 = QtGui.QIcon()
+        icon105.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/RengarSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon106 = QtGui.QIcon()
+        icon106.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/AkaliSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon107 = QtGui.QIcon()
+        icon107.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/CamilleSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon108 = QtGui.QIcon()
+        icon108.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/FioraSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon109 = QtGui.QIcon()
+        icon109.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/ShenSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon110 = QtGui.QIcon()
+        icon110.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/AatroxSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon111 = QtGui.QIcon()
+        icon111.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/GangplankSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon112 = QtGui.QIcon()
+        icon112.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/DravenSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon113 = QtGui.QIcon()
+        icon113.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/YasuoSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon114 = QtGui.QIcon()
+        icon114.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/LissandraSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon115 = QtGui.QIcon()
+        icon115.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KennenSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon116 = QtGui.QIcon()
+        icon116.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/BrandSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon117 = QtGui.QIcon()
+        icon117.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/AniviaSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon118 = QtGui.QIcon()
+        icon118.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/WarwickSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon119 = QtGui.QIcon()
+        icon119.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/ViSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon120 = QtGui.QIcon()
+        icon120.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/RekSaiSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon121 = QtGui.QIcon()
+        icon121.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/BlitzcrankSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon122 = QtGui.QIcon()
+        icon122.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/VolibearSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon123 = QtGui.QIcon()
+        icon123.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/ChoGathSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon124 = QtGui.QIcon()
+        icon124.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/VayneSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon125 = QtGui.QIcon()
+        icon125.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/VarusSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon126 = QtGui.QIcon()
+        icon126.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/AsheSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon127 = QtGui.QIcon()
+        icon127.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KindredSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon128 = QtGui.QIcon()
+        icon128.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/GravesSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon129 = QtGui.QIcon()
+        icon129.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/JinxSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon130 = QtGui.QIcon()
+        icon130.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/TristanaSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon131 = QtGui.QIcon()
+        icon131.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/LucianSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon132 = QtGui.QIcon()
+        icon132.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/Miss_FortuneSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon133 = QtGui.QIcon()
+        icon133.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/DariusSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon134 = QtGui.QIcon()
+        icon134.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/GarenSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon135 = QtGui.QIcon()
+        icon135.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/MordekaiserSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon136 = QtGui.QIcon()
+        icon136.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/PoppySquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon137 = QtGui.QIcon()
+        icon137.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/SejuaniSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon138 = QtGui.QIcon()
+        icon138.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KayleSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon139 = QtGui.QIcon()
+        icon139.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/BraumSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon140 = QtGui.QIcon()
+        icon140.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/LeonaSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon141 = QtGui.QIcon()
+        icon141.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KassadinSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon142 = QtGui.QIcon()
+        icon142.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/AhriSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon143 = QtGui.QIcon()
+        icon143.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/Twisted_FateSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon144 = QtGui.QIcon()
+        icon144.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/LuluSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon145 = QtGui.QIcon()
+        icon145.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/VeigarSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon146 = QtGui.QIcon()
+        icon146.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/MorganaSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon147 = QtGui.QIcon()
+        icon147.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/Aurelion_SolSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon148 = QtGui.QIcon()
+        icon148.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/KarthusSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon149 = QtGui.QIcon()
+        icon149.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/NidaleeSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon150 = QtGui.QIcon()
+        icon150.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/EliseSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon151 = QtGui.QIcon()
+        icon151.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/JayceSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon152 = QtGui.QIcon()
+        icon152.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/ShyvanaSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon153 = QtGui.QIcon()
+        icon153.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/GnarSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon154 = QtGui.QIcon()
+        icon154.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/SwainSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
 
 
