@@ -787,7 +787,11 @@ class Ui_MainWindow(object):
             self.inventoryButtons["invItem" + str(len(self.userInventory))].setObjectName("invItem" + str(len(self.userInventory)))
             self.inventoryButtons["invItem" + str(len(self.userInventory))].show()
 
-
+        def clearInventory():
+            for buttonKey in self.inventoryButtons:
+                self.inventoryButtons[buttonKey].deleteLater()
+            self.inventoryButtons = {}
+            self.userInventory = []
 
 
 
@@ -807,12 +811,12 @@ class Ui_MainWindow(object):
         self.buttonRB.clicked.connect(lambda: addInventory("RB"))
         self.buttonSpat.clicked.connect(lambda: addInventory("Spat"))
         self.buttonTear.clicked.connect(lambda: addInventory("Tear"))
+        self.buttonReset.clicked.connect(lambda: clearInventory())
         #self.buttonCraft.clicked.connect(insert function herre)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         
 
-    #def clearInventory(self):
 
     #def craftItems(self):
         
