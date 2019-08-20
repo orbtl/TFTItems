@@ -467,8 +467,10 @@ class Ui_MainWindow(object):
             "Swain": {"items": ['GBGB', 'NLRNLR', 'BFNLR', 'GBNLR', 'BFCV', 'TearTear', 'NCNC', 'CVRB'], "icon": icon154},
         }
         self.userInventory = []
+        self.doubleInventory = []
         self.inventoryButtons = {}
-
+        self.doubleButtons = {}
+        
 
 
 
@@ -684,12 +686,6 @@ class Ui_MainWindow(object):
         self.exCompItem_6.setText("")
         self.exCompItem_6.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
         self.exCompItem_6.setObjectName("exCompItem_6")
-        self.exInvItem_1 = QtWidgets.QLabel(self.centralwidget)
-        self.exInvItem_1.setEnabled(True)
-        self.exInvItem_1.setGeometry(QtCore.QRect(60, 100, 46, 46))
-        self.exInvItem_1.setText("")
-        self.exInvItem_1.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exInvItem_1.setObjectName("exInvItem_1")
         self.exCompItem_7 = QtWidgets.QLabel(self.centralwidget)
         self.exCompItem_7.setEnabled(True)
         self.exCompItem_7.setGeometry(QtCore.QRect(10, 530, 46, 46))
@@ -756,17 +752,6 @@ class Ui_MainWindow(object):
         self.label_5.raise_()
         self.frame_3.raise_()
         self.label_10.raise_()
-        self.exCompItem_0.raise_()
-        self.exCompItem_1.raise_()
-        self.exCompItem_2.raise_()
-        self.exCompItem_3.raise_()
-        self.exCompItem_4.raise_()
-        self.exCompItem_5.raise_()
-        self.exCompItem_6.raise_()
-        self.exInvItem_1.raise_()
-        self.exCompItem_7.raise_()
-        self.exCompItem_8.raise_()
-        self.exCompItem_9.raise_()
         self.buttonReset.raise_()
         self.buttonQuit.raise_()
         self.buttonCraft.raise_()
@@ -779,20 +764,30 @@ class Ui_MainWindow(object):
 
         def addInventory(itemID):
             self.userInventory.append(itemID)
-            self.inventoryButtons["invItem" + str(len(self.userInventory))] = QtWidgets.QToolButton(self.centralwidget)
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].setGeometry(QtCore.QRect(((len(self.userInventory) * 50) - 40), 100, 46, 46)) #adds 50 pixels per item in userInventory
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].setToolTip(self.baseItems[itemID]["name"])
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].setIcon(self.baseItems[itemID]["icon"])
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].setIconSize(QtCore.QSize(46, 46))
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].setObjectName("invItem" + str(len(self.userInventory)))
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].show()
+            inventoryButtonID = ("invItem" + str(len(self.userInventory)))
+            self.inventoryButtons[inventoryButtonID] = QtWidgets.QToolButton(self.centralwidget)
+            self.inventoryButtons[inventoryButtonID].setGeometry(QtCore.QRect(((len(self.userInventory) * 50) - 40), 100, 46, 46)) #adds 50 pixels per item in userInventory
+            self.inventoryButtons[inventoryButtonID].setToolTip(self.baseItems[itemID]["name"])
+            self.inventoryButtons[inventoryButtonID].setIcon(self.baseItems[itemID]["icon"])
+            self.inventoryButtons[inventoryButtonID].setIconSize(QtCore.QSize(46, 46))
+            self.inventoryButtons[inventoryButtonID].setObjectName(inventoryButtonID)
+            self.inventoryButtons[inventoryButtonID].show()
+            self.userInventory.sort()
 
         def clearInventory():
             for buttonKey in self.inventoryButtons:
                 self.inventoryButtons[buttonKey].deleteLater()
             self.inventoryButtons = {}
             self.userInventory = []
+            self.doubleInventory = []
 
+        def craftItems():
+            for i in range(len(self.userInventory)):
+                for j in range(i+1, len(self.userInventory)):
+                    if (self.userInventory[i] + self.userInventory[j]) not in self.doubleInventory:
+                        self.doubleInventory.append(self.userInventory[i] + self.userInventory[j])
+                        #self.doubleButtons[""]
+            
 
 
 
@@ -812,13 +807,11 @@ class Ui_MainWindow(object):
         self.buttonSpat.clicked.connect(lambda: addInventory("Spat"))
         self.buttonTear.clicked.connect(lambda: addInventory("Tear"))
         self.buttonReset.clicked.connect(lambda: clearInventory())
-        #self.buttonCraft.clicked.connect(insert function herre)
+        self.buttonCraft.clicked.connect(lambda: craftItems())
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         
 
-
-    #def craftItems(self):
         
 
 
