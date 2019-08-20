@@ -1,122 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-baseItems = {
-    "BF": {"name": "B.F. Sword", "icon": icon1},
-    "CV": {"name": "Chain Vest", "icon": icon2},
-    "GB": {"name": "Giant's Belt", "icon": icon3},
-    "NC": {"name": "Negatron Cloak", "icon": icon4},
-    "NLR": {"name": "Needlessly Large Rod", "icon": icon5},
-    "RB": {"name": "Recurve Bow", "icon": icon6},
-    "Spat": {"name": "Spatula", "icon": icon7},
-    "Tear": {"name": "Tear of the Goddess", "icon": icon8},
-}
-fullItems = {
-    "BFBF": {"name": "Infinity Edge", "icon": icon10},
-    "BFCV": {"name": "Guardian Angel", "icon": icon11},
-    "BFGB": {"name": "Zeke's Herald", "icon": icon12},
-    "BFNC": {"name": "Bloodthirster", "icon": icon13},
-    "BFNLR": {"name": "Hextech Gunblade", "icon": icon14},
-    "BFRB": {"name": "Sword Of The Divine", "icon": icon15},
-    "BFSpat": {"name": "Youmou's Ghostblade", "icon": icon16},
-    "BFTear": {"name": "Spear of Shojin", "icon": icon17},
-    "CVCV": {"name": "Thornmail", "icon": icon18},
-    "CVGB": {"name": "Red Buff", "icon": icon19},
-    "CVNC": {"name": "Sword Breaker", "icon": icon20},
-    "CVNLR": {"name": "Locket of the Iron Solari", "icon": icon21},
-    "CVRB": {"name": "Phantom Dancer", "icon": icon22},
-    "CVSpat": {"name": "Knight's Vow", "icon": icon23},
-    "CVTear": {"name": "Frozen Heart", "icon": icon24},
-    "GBGB": {"name": "Warmog's Armor", "icon": icon25},
-    "GBNC": {"name": "Zephyr", "icon": icon26},
-    "GBNLR": {"name": "Morellonomicon", "icon": icon27},
-    "GBRB": {"name": "Titanic Hydra", "icon": icon28},
-    "GBSpat": {"name": "Frozen Mallet", "icon": icon29},
-    "GBTear": {"name": "Redemption", "icon": icon30},
-    "NCNC": {"name": "Dragon's Claw", "icon": icon31},
-    "NCNLR": {"name": "Ionic Spark", "icon": icon32},
-    "NCRB": {"name": "Cursed Blade", "icon": icon33},
-    "NCSpat": {"name": "Hurricane", "icon": icon34},
-    "NCTear": {"name": "Hush", "icon": icon35},
-    "NLRNLR": {"name": "Rabadon's Deathcap", "icon": icon36},
-    "NLRRB": {"name": "Guinsoo's Rageblade", "icon": icon37},
-    "NLRSpat": {"name": "Yuumi", "icon": icon38},
-    "NLRTear": {"name": "Luden's Echo", "icon": icon39},
-    "RBRB": {"name": "Rapidfire Cannon", "icon": icon40},
-    "RBSpat": {"name": "Blade of the Ruined King", "icon": icon41},
-    "RBTear": {"name": "Statikk Shiv", "icon": icon42},
-    "SpatSpat": {"name": "Force of Nature", "icon": icon43},
-    "SpatTear": {"name": "Darkin", "icon": icon44},
-    "TearTear": {"name": "Seraph's Embrace", "icon": icon45},
-}
-championGuide = {
-    "Kha'Zix": {"items": ['RBRB', 'BFBF', 'TearTear', 'NLRTear'], "icon": icon100},
-    "Pyke": {"items": ['BFTear', 'CVTear', 'GBNLR', 'SpatTear'], "icon": icon101},
-    "Zed": {"items": ['RBRB', 'BFBF', 'BFNC', 'BFGB'], "icon": icon102},
-    "Katarina": {"items": ['GBNLR', 'BFNLR', 'NLRNLR', 'NLRSpat'], "icon": icon103},
-    "Evelynn": {"items": ['TearTear', 'GBNLR', 'NLRNLR', 'NLRSpat'], "icon": icon104},
-    "Rengar": {"items": ['RBRB', 'BFCV', 'BFNC', 'NCNC'], "icon": icon105},
-    "Akali": {"items": ['TearTear', 'NCNC', 'BFNLR', 'CVRB', 'GBGB', 'BFCV'], "icon": icon106},
-    "Camille": {"items": [], "icon": icon107},
-    "Fiora": {"items": ['RBTear', 'BFNLR', 'BFNC', 'RBRB'], "icon": icon108},
-    "Shen": {"items": ['NCNC', 'CVCV', 'BFCV', 'GBGB'], "icon": icon109},
-    "Aatrox": {"items": ['BFNLR', 'BFCV', 'NCNC', 'CVRB', 'NLRSpat'], "icon": icon110},
-    "Gangplank": {"items": ['NCTear', 'GBCV', 'GBNLR', 'BFTear', 'BFCV', 'CVNC'], "icon": icon111},
-    "Draven": {"items": ['RBRB', 'BFNC', 'NLRRB', 'NCNC', 'BFBF', 'CVRB', 'BFCV'], "icon": icon112},
-    "Yasuo": {"items": ['TearTear', 'CVGB', 'GBGB', 'NCTear', 'CVNC', 'NCNC'], "icon": icon113},
-    "Lissandra": {"items": [], "icon": icon114},
-    "Kennen": {"items": ['GBNLR', 'BFCV', 'NLRNLR', 'NCNC', 'CVRB'], "icon": icon115},
-    "Brand": {"items": ['BFTear', 'RBRB', 'GBNLR'], "icon": icon116},
-    "Anivia": {"items": ['GBNLR', 'NLRNLR', 'TearTear'], "icon": icon117},
-    "Warwick": {"items": [], "icon": icon118},
-    "Vi": {"items": ['CVTear', 'GBGB', 'NLRSpat', 'GBNLR', 'BFTear'], "icon": icon119},
-    "Rek'Sai": {"items": ['BFTear', 'NLRRB', 'RBRB', 'CVRB', 'GBGB', 'BFCV'], "icon": icon120},
-    "Blitzcrank": {"items": ['NLRNLR', 'BFTear'], "icon": icon121},
-    "Volibear": {"items": ['RBRB', 'SpatTear', 'BFBF', 'GBRB', 'NCSpat', 'GBCV', 'BFNC'], "icon": icon122},
-    "Cho'Gath": {"items": ['TearTear', 'BFCV', 'GBNLR', 'NLRNLR', 'RBRB', 'NLRSpat'], "icon": icon123},
-    "Vayne": {"items": ['RBTear', 'GBRB', 'RBRB', 'NLRRB'], "icon": icon124},
-    "Varus": {"items": ['BFTear', 'GBNLR', 'NLRRB', 'RBTear', 'NLRNLR', 'NLRSpat'], "icon": icon125},
-    "Ashe": {"items": ['RBTear', 'RBRB', 'NLRRB', 'BFTear'], "icon": icon126},
-    "Kindred": {"items": ['NLRSpat', 'BFCV', 'CVRB', 'RBTear'], "icon": icon127},
-    "Graves": {"items": ['CVGB', 'GBRB', 'BFBF'], "icon": icon128},
-    "Jinx": {"items": ['NCSpat', 'RBSpat', 'RBRB', 'BFNC', 'NLRRB', 'CVGB'], "icon": icon129},
-    "Tristana": {"items": ['NCRB', 'NCTear', 'RBSpat', 'BFBF', 'GBRB'], "icon": icon130},
-    "Lucian": {"items": ['NCRB', 'NCTear', 'CVGB', 'NLRTear', 'CVNC', 'TearTear'], "icon": icon131},
-    "Miss Fortune": {"items": ['TearTear', 'GBNLR', 'BFCV'], "icon": icon132},
-    "Darius": {"items": ['GBGB', 'NCNC'], "icon": icon133},
-    "Garen": {"items": ['NCNC', 'GBGB', 'CVRB', 'GBNLR'], "icon": icon134},
-    "Mordekaiser": {"items": [], "icon": icon135},
-    "Poppy": {"items": ['NLRSpat', 'NCNC', 'CVRB', 'GBGB', 'NCNLR'], "icon": icon136},
-    "Sejuani": {"items": ['GBNLR', 'BFCV', 'NCNC', 'CVRB', 'GBGB'], "icon": icon137},
-    "Kayle": {"items": ['RBSpat', 'NLRSpat', 'BFTear', 'RBTear', 'NCSpat', 'NLRRB', 'RBRB'], "icon": icon138},
-    "Braum": {"items": ['CVCV', 'NCNC', 'GBGB'], "icon": icon139},
-    "Leona": {"items": ['NLRTear', 'TearTear'], "icon": icon140},
-    "Kassadin": {"items": ['RBRB', 'NLRRB', 'NCNC', 'CVRB', 'BFNC', 'NLRNLR'], "icon": icon141},
-    "Ahri": {"items": ['RBTear', 'NLRTear', 'TearTear', 'GBNLR', 'NLRNLR'], "icon": icon142},
-    "Twisted Fate": {"items": ['RBTear', 'TearTear', 'NLRTear', 'RBRB'], "icon": icon143},
-    "Lulu": {"items": ['BFTear', 'NLRRB', 'NLRNLR', 'NCNLR'], "icon": icon144},
-    "Veigar": {"items": ['TearTear', 'BFNLR', 'NCNC', 'CVRB', 'RBRB'], "icon": icon145},
-    "Morgana": {"items": ['NLRNLR', 'GBNLR', 'CVTear', 'TearTear', 'NCNC', 'BFCV'], "icon": icon146},
-    "Aurelion Sol": {"items": ['RBRB', 'BFTear', 'NLRNLR', 'GBNLR'], "icon": icon147},
-    "Karthus": {"items": ['GBNLR', 'NLRNLR', 'BFTear', 'TearTear'], "icon": icon148},
-    "Nidalee": {"items": ['RBRB', 'RBTear', 'BFNC'], "icon": icon149},
-    "Elise": {"items": ['GBGB', 'CVTear'], "icon": icon150},
-    "Jayce": {"items": [], "icon": icon151},
-    "Shyvana": {"items": ['GBGB', 'CVCV', 'CVRB', 'RBRB', 'BFNC', 'NLRRB'], "icon": icon152},
-    "Gnar": {"items": ['GBGB', 'GBRB', 'CVRB', 'NCNC'], "icon": icon153},
-    "Swain": {"items": ['GBGB', 'NLRNLR', 'BFNLR', 'GBNLR', 'BFCV', 'TearTear', 'NCNC', 'CVRB'], "icon": icon154},
-}
-
-
-
-
-
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(691, 680)
-        
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/imgOther/img/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: rgb(0, 0, 0);")
@@ -269,8 +159,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setPalette(palette)
         self.centralwidget.setObjectName("centralwidget")
 
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/imgOther/img/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/imgBase/img/base/Giants_Belt_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon2 = QtGui.QIcon()
@@ -472,9 +361,113 @@ class Ui_MainWindow(object):
         icon154 = QtGui.QIcon()
         icon154.addPixmap(QtGui.QPixmap(":/imgBase/img/champions/SwainSquare.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
-
-
-
+        self.baseItems = {
+            "BF": {"name": "B.F. Sword", "icon": icon3},
+            "CV": {"name": "Chain Vest", "icon": icon2},
+            "GB": {"name": "Giant's Belt", "icon": icon1},
+            "NC": {"name": "Negatron Cloak", "icon": icon5},
+            "NLR": {"name": "Needlessly Large Rod", "icon": icon4},
+            "RB": {"name": "Recurve Bow", "icon": icon6},
+            "Spat": {"name": "Spatula", "icon": icon7},
+            "Tear": {"name": "Tear of the Goddess", "icon": icon8},
+        }
+        self.fullItems = {
+            "BFBF": {"name": "Infinity Edge", "icon": icon10},
+            "BFCV": {"name": "Guardian Angel", "icon": icon11},
+            "BFGB": {"name": "Zeke's Herald", "icon": icon12},
+            "BFNC": {"name": "Bloodthirster", "icon": icon13},
+            "BFNLR": {"name": "Hextech Gunblade", "icon": icon14},
+            "BFRB": {"name": "Sword Of The Divine", "icon": icon15},
+            "BFSpat": {"name": "Youmou's Ghostblade", "icon": icon16},
+            "BFTear": {"name": "Spear of Shojin", "icon": icon17},
+            "CVCV": {"name": "Thornmail", "icon": icon18},
+            "CVGB": {"name": "Red Buff", "icon": icon19},
+            "CVNC": {"name": "Sword Breaker", "icon": icon20},
+            "CVNLR": {"name": "Locket of the Iron Solari", "icon": icon21},
+            "CVRB": {"name": "Phantom Dancer", "icon": icon22},
+            "CVSpat": {"name": "Knight's Vow", "icon": icon23},
+            "CVTear": {"name": "Frozen Heart", "icon": icon24},
+            "GBGB": {"name": "Warmog's Armor", "icon": icon25},
+            "GBNC": {"name": "Zephyr", "icon": icon26},
+            "GBNLR": {"name": "Morellonomicon", "icon": icon27},
+            "GBRB": {"name": "Titanic Hydra", "icon": icon28},
+            "GBSpat": {"name": "Frozen Mallet", "icon": icon29},
+            "GBTear": {"name": "Redemption", "icon": icon30},
+            "NCNC": {"name": "Dragon's Claw", "icon": icon31},
+            "NCNLR": {"name": "Ionic Spark", "icon": icon32},
+            "NCRB": {"name": "Cursed Blade", "icon": icon33},
+            "NCSpat": {"name": "Hurricane", "icon": icon34},
+            "NCTear": {"name": "Hush", "icon": icon35},
+            "NLRNLR": {"name": "Rabadon's Deathcap", "icon": icon36},
+            "NLRRB": {"name": "Guinsoo's Rageblade", "icon": icon37},
+            "NLRSpat": {"name": "Yuumi", "icon": icon38},
+            "NLRTear": {"name": "Luden's Echo", "icon": icon39},
+            "RBRB": {"name": "Rapidfire Cannon", "icon": icon40},
+            "RBSpat": {"name": "Blade of the Ruined King", "icon": icon41},
+            "RBTear": {"name": "Statikk Shiv", "icon": icon42},
+            "SpatSpat": {"name": "Force of Nature", "icon": icon43},
+            "SpatTear": {"name": "Darkin", "icon": icon44},
+            "TearTear": {"name": "Seraph's Embrace", "icon": icon45},
+        }
+        self.championGuide = {
+            "Kha'Zix": {"items": ['RBRB', 'BFBF', 'TearTear', 'NLRTear'], "icon": icon100},
+            "Pyke": {"items": ['BFTear', 'CVTear', 'GBNLR', 'SpatTear'], "icon": icon101},
+            "Zed": {"items": ['RBRB', 'BFBF', 'BFNC', 'BFGB'], "icon": icon102},
+            "Katarina": {"items": ['GBNLR', 'BFNLR', 'NLRNLR', 'NLRSpat'], "icon": icon103},
+            "Evelynn": {"items": ['TearTear', 'GBNLR', 'NLRNLR', 'NLRSpat'], "icon": icon104},
+            "Rengar": {"items": ['RBRB', 'BFCV', 'BFNC', 'NCNC'], "icon": icon105},
+            "Akali": {"items": ['TearTear', 'NCNC', 'BFNLR', 'CVRB', 'GBGB', 'BFCV'], "icon": icon106},
+            "Camille": {"items": [], "icon": icon107},
+            "Fiora": {"items": ['RBTear', 'BFNLR', 'BFNC', 'RBRB'], "icon": icon108},
+            "Shen": {"items": ['NCNC', 'CVCV', 'BFCV', 'GBGB'], "icon": icon109},
+            "Aatrox": {"items": ['BFNLR', 'BFCV', 'NCNC', 'CVRB', 'NLRSpat'], "icon": icon110},
+            "Gangplank": {"items": ['NCTear', 'GBCV', 'GBNLR', 'BFTear', 'BFCV', 'CVNC'], "icon": icon111},
+            "Draven": {"items": ['RBRB', 'BFNC', 'NLRRB', 'NCNC', 'BFBF', 'CVRB', 'BFCV'], "icon": icon112},
+            "Yasuo": {"items": ['TearTear', 'CVGB', 'GBGB', 'NCTear', 'CVNC', 'NCNC'], "icon": icon113},
+            "Lissandra": {"items": [], "icon": icon114},
+            "Kennen": {"items": ['GBNLR', 'BFCV', 'NLRNLR', 'NCNC', 'CVRB'], "icon": icon115},
+            "Brand": {"items": ['BFTear', 'RBRB', 'GBNLR'], "icon": icon116},
+            "Anivia": {"items": ['GBNLR', 'NLRNLR', 'TearTear'], "icon": icon117},
+            "Warwick": {"items": [], "icon": icon118},
+            "Vi": {"items": ['CVTear', 'GBGB', 'NLRSpat', 'GBNLR', 'BFTear'], "icon": icon119},
+            "Rek'Sai": {"items": ['BFTear', 'NLRRB', 'RBRB', 'CVRB', 'GBGB', 'BFCV'], "icon": icon120},
+            "Blitzcrank": {"items": ['NLRNLR', 'BFTear'], "icon": icon121},
+            "Volibear": {"items": ['RBRB', 'SpatTear', 'BFBF', 'GBRB', 'NCSpat', 'GBCV', 'BFNC'], "icon": icon122},
+            "Cho'Gath": {"items": ['TearTear', 'BFCV', 'GBNLR', 'NLRNLR', 'RBRB', 'NLRSpat'], "icon": icon123},
+            "Vayne": {"items": ['RBTear', 'GBRB', 'RBRB', 'NLRRB'], "icon": icon124},
+            "Varus": {"items": ['BFTear', 'GBNLR', 'NLRRB', 'RBTear', 'NLRNLR', 'NLRSpat'], "icon": icon125},
+            "Ashe": {"items": ['RBTear', 'RBRB', 'NLRRB', 'BFTear'], "icon": icon126},
+            "Kindred": {"items": ['NLRSpat', 'BFCV', 'CVRB', 'RBTear'], "icon": icon127},
+            "Graves": {"items": ['CVGB', 'GBRB', 'BFBF'], "icon": icon128},
+            "Jinx": {"items": ['NCSpat', 'RBSpat', 'RBRB', 'BFNC', 'NLRRB', 'CVGB'], "icon": icon129},
+            "Tristana": {"items": ['NCRB', 'NCTear', 'RBSpat', 'BFBF', 'GBRB'], "icon": icon130},
+            "Lucian": {"items": ['NCRB', 'NCTear', 'CVGB', 'NLRTear', 'CVNC', 'TearTear'], "icon": icon131},
+            "Miss Fortune": {"items": ['TearTear', 'GBNLR', 'BFCV'], "icon": icon132},
+            "Darius": {"items": ['GBGB', 'NCNC'], "icon": icon133},
+            "Garen": {"items": ['NCNC', 'GBGB', 'CVRB', 'GBNLR'], "icon": icon134},
+            "Mordekaiser": {"items": [], "icon": icon135},
+            "Poppy": {"items": ['NLRSpat', 'NCNC', 'CVRB', 'GBGB', 'NCNLR'], "icon": icon136},
+            "Sejuani": {"items": ['GBNLR', 'BFCV', 'NCNC', 'CVRB', 'GBGB'], "icon": icon137},
+            "Kayle": {"items": ['RBSpat', 'NLRSpat', 'BFTear', 'RBTear', 'NCSpat', 'NLRRB', 'RBRB'], "icon": icon138},
+            "Braum": {"items": ['CVCV', 'NCNC', 'GBGB'], "icon": icon139},
+            "Leona": {"items": ['NLRTear', 'TearTear'], "icon": icon140},
+            "Kassadin": {"items": ['RBRB', 'NLRRB', 'NCNC', 'CVRB', 'BFNC', 'NLRNLR'], "icon": icon141},
+            "Ahri": {"items": ['RBTear', 'NLRTear', 'TearTear', 'GBNLR', 'NLRNLR'], "icon": icon142},
+            "Twisted Fate": {"items": ['RBTear', 'TearTear', 'NLRTear', 'RBRB'], "icon": icon143},
+            "Lulu": {"items": ['BFTear', 'NLRRB', 'NLRNLR', 'NCNLR'], "icon": icon144},
+            "Veigar": {"items": ['TearTear', 'BFNLR', 'NCNC', 'CVRB', 'RBRB'], "icon": icon145},
+            "Morgana": {"items": ['NLRNLR', 'GBNLR', 'CVTear', 'TearTear', 'NCNC', 'BFCV'], "icon": icon146},
+            "Aurelion Sol": {"items": ['RBRB', 'BFTear', 'NLRNLR', 'GBNLR'], "icon": icon147},
+            "Karthus": {"items": ['GBNLR', 'NLRNLR', 'BFTear', 'TearTear'], "icon": icon148},
+            "Nidalee": {"items": ['RBRB', 'RBTear', 'BFNC'], "icon": icon149},
+            "Elise": {"items": ['GBGB', 'CVTear'], "icon": icon150},
+            "Jayce": {"items": [], "icon": icon151},
+            "Shyvana": {"items": ['GBGB', 'CVCV', 'CVRB', 'RBRB', 'BFNC', 'NLRRB'], "icon": icon152},
+            "Gnar": {"items": ['GBGB', 'GBRB', 'CVRB', 'NCNC'], "icon": icon153},
+            "Swain": {"items": ['GBGB', 'NLRNLR', 'BFNLR', 'GBNLR', 'BFCV', 'TearTear', 'NCNC', 'CVRB'], "icon": icon154},
+        }
+        self.userInventory = []
+        self.inventoryButtons = {}
 
 
 
@@ -603,12 +596,6 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
-        self.exInvItem_0 = QtWidgets.QLabel(self.centralwidget)
-        self.exInvItem_0.setEnabled(True)
-        self.exInvItem_0.setGeometry(QtCore.QRect(10, 100, 46, 46))
-        self.exInvItem_0.setText("")
-        self.exInvItem_0.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exInvItem_0.setObjectName("exInvItem_0")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 77, 691, 10))
 
@@ -766,7 +753,6 @@ class Ui_MainWindow(object):
         self.label_8.raise_()
         self.label_9.raise_()
         self.label_4.raise_()
-        self.exInvItem_0.raise_()
         self.label_5.raise_()
         self.frame_3.raise_()
         self.label_10.raise_()
@@ -791,21 +777,19 @@ class Ui_MainWindow(object):
 
 
 
+        def addInventory(itemID):
+            self.userInventory.append(itemID)
+            self.inventoryButtons["invItem" + str(len(self.userInventory))] = QtWidgets.QToolButton(self.centralwidget)
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].setGeometry(QtCore.QRect(10, 100, 46, 46))
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].setToolTip(self.baseItems[itemID]["name"])
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].setIcon(self.baseItems[itemID]["icon"])
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].setIconSize(QtCore.QSize(46, 46))
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].setObjectName("invItem" + str(len(self.userInventory)))
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].show()
+            print("itemID is: " + itemID)
+            print("userInventory is: " + str(self.userInventory))
 
 
-
-
-        self.buttonTest = QtWidgets.QToolButton(self.centralwidget)
-        self.buttonTest.setGeometry(QtCore.QRect(300, 300, 46, 46))
-        testDict = {
-            "GB": [icon1, "Giant's Belt"],
-            "CV": [icon2, "Chain Vest"]
-        }
-        buttonTestName = "CV"
-        self.buttonTest.setIcon(testDict[buttonTestName][0])
-        self.buttonTest.setIconSize(QtCore.QSize(46, 46))
-        self.buttonTest.setObjectName("buttonTest")
-        self.buttonTest.setToolTip(testDict[buttonTestName][1])
 
 
 
@@ -818,7 +802,19 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.buttonQuit.clicked.connect(MainWindow.close)
+        self.buttonBF.clicked.connect(lambda: addInventory("BF"))
+        #self.buttonCraft.clicked.connect(insert function herre)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        
+
+    #def clearInventory(self):
+
+    #def craftItems(self):
+        
+
+
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -844,8 +840,6 @@ class Ui_MainWindow(object):
         self.buttonReset.setText(_translate("MainWindow", "Reset Items"))
         self.buttonQuit.setText(_translate("MainWindow", "Quit"))
         self.buttonCraft.setText(_translate("MainWindow", "Craft Items"))
-
-
 
 
 import TFTItems_rc
