@@ -780,15 +780,12 @@ class Ui_MainWindow(object):
         def addInventory(itemID):
             self.userInventory.append(itemID)
             self.inventoryButtons["invItem" + str(len(self.userInventory))] = QtWidgets.QToolButton(self.centralwidget)
-            self.inventoryButtons["invItem" + str(len(self.userInventory))].setGeometry(QtCore.QRect(10, 100, 46, 46))
+            self.inventoryButtons["invItem" + str(len(self.userInventory))].setGeometry(QtCore.QRect(((len(self.userInventory) * 50) - 40), 100, 46, 46)) #adds 50 pixels per item in userInventory
             self.inventoryButtons["invItem" + str(len(self.userInventory))].setToolTip(self.baseItems[itemID]["name"])
             self.inventoryButtons["invItem" + str(len(self.userInventory))].setIcon(self.baseItems[itemID]["icon"])
             self.inventoryButtons["invItem" + str(len(self.userInventory))].setIconSize(QtCore.QSize(46, 46))
             self.inventoryButtons["invItem" + str(len(self.userInventory))].setObjectName("invItem" + str(len(self.userInventory)))
             self.inventoryButtons["invItem" + str(len(self.userInventory))].show()
-            print("itemID is: " + itemID)
-            print("userInventory is: " + str(self.userInventory))
-
 
 
 
@@ -803,6 +800,13 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.buttonQuit.clicked.connect(MainWindow.close)
         self.buttonBF.clicked.connect(lambda: addInventory("BF"))
+        self.buttonCV.clicked.connect(lambda: addInventory("CV"))
+        self.buttonGB.clicked.connect(lambda: addInventory("GB"))
+        self.buttonNC.clicked.connect(lambda: addInventory("NC"))
+        self.buttonNLR.clicked.connect(lambda: addInventory("NLR"))
+        self.buttonRB.clicked.connect(lambda: addInventory("RB"))
+        self.buttonSpat.clicked.connect(lambda: addInventory("Spat"))
+        self.buttonTear.clicked.connect(lambda: addInventory("Tear"))
         #self.buttonCraft.clicked.connect(insert function herre)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
