@@ -765,7 +765,7 @@ class Ui_MainWindow(object):
             champCount = 0
             for chName, chDict in self.championGuide.items():
                 if itemCode in chDict["items"]:
-                    if champCount > 12: # wrapping onto next line if more than 12 champions
+                    if champCount >= 12: # wrapping onto next line if more than 12 champions
                         self.craftCounter += 1
                         itemCount += 1
                         champCount = 0
