@@ -470,6 +470,7 @@ class Ui_MainWindow(object):
         self.doubleInventory = []
         self.inventoryButtons = {}
         self.doubleButtons = {}
+        self.champions = {}
         
 
 
@@ -752,7 +753,23 @@ class Ui_MainWindow(object):
                         self.doubleButtons[craftedItem].setIconSize(QtCore.QSize(46, 46))
                         self.doubleButtons[craftedItem].setObjectName(craftedItem)
                         self.doubleButtons[craftedItem].show()
+                        craftChampions(craftedItem, count)
                         count += 1
+
+        def craftChampions(itemCode, itemCount):
+            champCount = 0
+            for chName, chDict in self.championGuide.items():
+                if itemCode in chDict["items"]:
+                    self.champions[chName + str(itemCount)] = QtWidgets.QToolButton(self.centralwidget)
+                    self.champions[chName + str(itemCount)].setGeometry(QtCore.QRect((champCount * 50) + 60, ((itemCount * 50) + 180), 46, 46)) #adds 50 pixels vertically per item, and 50 pixels horizontally per champion
+                    self.champions[chName + str(itemCount)].setToolTip(chName)
+                    self.champions[chName + str(itemCount)].setIcon(self.championGuide[chName]["icon"])
+                    self.champions[chName + str(itemCount)].setIconSize(QtCore.QSize(46, 46))
+                    self.champions[chName + str(itemCount)].setObjectName(chName + str(itemCount))
+                    self.champions[chName + str(itemCount)].show()
+                    champCount += 1
+
+
             
 
 
