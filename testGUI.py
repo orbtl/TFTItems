@@ -785,8 +785,18 @@ class Ui_MainWindow(object):
             for i in range(len(self.userInventory)):
                 for j in range(i+1, len(self.userInventory)):
                     if (self.userInventory[i] + self.userInventory[j]) not in self.doubleInventory:
-                        self.doubleInventory.append(self.userInventory[i] + self.userInventory[j])
-                        #self.doubleButtons[""]
+                        craftedItem = self.userInventory[i] + self.userInventory[j]
+                        self.doubleInventory.append(craftedItem)
+            count = 0
+            for k in self.doubleInventory:
+                self.doubleButtons[k] = QtWidgets.QToolButton(self.centralwidget)
+                self.doubleButtons[k].setGeometry(QtCore.QRect(10, ((count * 50) + 180), 46, 46)) #adds 50 pixels vertically per item
+                self.doubleButtons[k].setToolTip(self.fullItems[k]["name"])
+                self.doubleButtons[k].setIcon(self.fullItems[k]["icon"])
+                self.doubleButtons[k].setIconSize(QtCore.QSize(46, 46))
+                self.doubleButtons[k].setObjectName(k)
+                self.doubleButtons[k].show()
+                count += 1
             
 
 
