@@ -475,6 +475,7 @@ class Ui_MainWindow(object):
         self.craftCounter = 0
         self.championRecMax = 0
         self.championTopRecs = []
+        self.championHLs = {}
 
 
 
@@ -782,13 +783,23 @@ class Ui_MainWindow(object):
                     if chName not in self.championRecCount:
                         self.championRecCount[chName] = 0
                     self.championRecCount[chName] += 1
+                    
 
         def recChampions():
-            print(self.championRecCount) #debugging
             self.championRecMax = max(list(self.championRecCount.values()))
-            for champRec, chValue in self.championRecCount.items():
-                if chValue == self.championRecMax:
-                    self.championTopRecs.append(champRec)
+            if self.championRecMax > 1:
+                for champRec, chValue in self.championRecCount.items():
+                    if chValue == self.championRecMax:
+                        self.championTopRecs.append(champRec)
+                for chInstance, chButton in self.champions.items():
+                    for i in range(len(self.championTopRecs)):
+                        if self.championTopRecs[i] in chInstance:
+                            self.championHLs[chInstance] = QtWidgets.QLabel(self.centralwidget)
+                            self.championHLs[chInstance].setGeometry(QtCore.QRect((self.champions[chInstance].geometry().x() - 2), (self.champions[chInstance].geometry().y() - 2), 50, 50))
+                            self.championHLs[chInstance].setStyleSheet("background-color: rgb(255, 127, 0);")
+                            self.championHLs[chInstance].setObjectName(chInstance + "HL")
+                            self.championHLs[chInstance].show()
+
 
 
                     
