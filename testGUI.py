@@ -471,7 +471,8 @@ class Ui_MainWindow(object):
         self.inventoryButtons = {}
         self.doubleButtons = {}
         self.champions = {}
-        
+        self.championRecCount = {}
+        self.craftCounter = 0
 
 
 
@@ -742,7 +743,7 @@ class Ui_MainWindow(object):
         def craftItems():
             clearDouble()
             clearChampions()
-            count = 0
+            self.craftCounter = 0
             for i in range((len(self.userInventory) - 1)):
                 for j in range(i+1, len(self.userInventory)):
                     if (self.userInventory[i] + self.userInventory[j]) not in self.doubleInventory: #no duplicate completed items
@@ -751,19 +752,23 @@ class Ui_MainWindow(object):
                         self.doubleInventory.append(craftedItem)
                         print(self.doubleInventory) #debugging
                         self.doubleButtons[craftedItem] = QtWidgets.QToolButton(self.centralwidget)
-                        self.doubleButtons[craftedItem].setGeometry(QtCore.QRect(10, ((count * 50) + 180), 46, 46)) #adds 50 pixels vertically per item
+                        self.doubleButtons[craftedItem].setGeometry(QtCore.QRect(10, ((self.craftCounter * 50) + 180), 46, 46)) #adds 50 pixels vertically per item
                         self.doubleButtons[craftedItem].setToolTip(self.fullItems[craftedItem]["name"])
                         self.doubleButtons[craftedItem].setIcon(self.fullItems[craftedItem]["icon"])
                         self.doubleButtons[craftedItem].setIconSize(QtCore.QSize(46, 46))
                         self.doubleButtons[craftedItem].setObjectName(craftedItem)
                         self.doubleButtons[craftedItem].show()
-                        craftChampions(craftedItem, count)
-                        count += 1
+                        craftChampions(craftedItem, self.craftCounter)
+                        self.craftCounter += 1
 
         def craftChampions(itemCode, itemCount):
             champCount = 0
             for chName, chDict in self.championGuide.items():
                 if itemCode in chDict["items"]:
+                    if champCount > 12: # wrapping onto next line if more than 12 champions
+                        self.craftCounter += 1
+                        itemCount += 1
+                        champCount = 0
                     self.champions[chName + str(itemCount)] = QtWidgets.QToolButton(self.centralwidget)
                     self.champions[chName + str(itemCount)].setGeometry(QtCore.QRect((champCount * 50) + 60, ((itemCount * 50) + 180), 46, 46)) #adds 50 pixels vertically per item, and 50 pixels horizontally per champion
                     self.champions[chName + str(itemCount)].setToolTip(chName)
@@ -772,6 +777,7 @@ class Ui_MainWindow(object):
                     self.champions[chName + str(itemCount)].setObjectName(chName + str(itemCount))
                     self.champions[chName + str(itemCount)].show()
                     champCount += 1
+
 
 
             
