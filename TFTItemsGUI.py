@@ -1,3 +1,4 @@
+import fix_qt_import_error
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -478,12 +479,12 @@ class Ui_MainWindow(object):
         self.championHLs = {}
         self.highlightColors = {
             0: [255, 0, 0],
-            1: [255, 128, 0],
+            1: [0, 0, 255],
             2: [255, 255, 0],
             3: [0, 255, 0],
             4: [0, 255, 255],
             5: [255, 0, 255],
-            6: [0, 0, 255],
+            6: [255, 128, 0],
             8: [255, 255, 255],
         }
 
@@ -728,12 +729,12 @@ class Ui_MainWindow(object):
             self.inventoryButtons[inventoryButtonID].setObjectName(inventoryButtonID)
             self.inventoryButtons[inventoryButtonID].show()
             self.userInventory.sort()
-            print(self.userInventory) #for debugging
 
         def clearInventory():
             clearBase()
             clearDouble()
             clearChampions()
+            clearHLs()
 
         def clearBase():
             for buttonKey in self.inventoryButtons:
@@ -752,10 +753,17 @@ class Ui_MainWindow(object):
                 self.champions[championKey].deleteLater()
             self.champions = {}
 
+        def clearHLs():
+            for highlightKey in self.championHLs:
+                self.championHLs[highlightKey].deleteLater()
+            self.championHLs = {}
+            self.championTopRecs = []
+
 
         def craftItems():
             clearDouble()
             clearChampions()
+            clearHLs()
             self.championRecCount = {}
             self.craftCounter = 0
             for i in range((len(self.userInventory) - 1)):
@@ -801,7 +809,7 @@ class Ui_MainWindow(object):
                 for champRec, chValue in self.championRecCount.items():
                     if chValue == self.championRecMax:
                         self.championTopRecs.append(champRec)
-                for chInstance, chButton in self.champions.items():
+                for chInstance in self.champions:
                     for i in range(len(self.championTopRecs)):
                         if self.championTopRecs[i] in chInstance:
                             self.championHLs[chInstance] = QtWidgets.QLabel(self.centralwidget)
