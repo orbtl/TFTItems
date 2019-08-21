@@ -798,6 +798,7 @@ class Ui_MainWindow(object):
                             self.championHLs[chInstance].setGeometry(QtCore.QRect((self.champions[chInstance].geometry().x() - 2), (self.champions[chInstance].geometry().y() - 2), 50, 50))
                             self.championHLs[chInstance].setStyleSheet("background-color: rgb(255, 127, 0);")
                             self.championHLs[chInstance].setObjectName(chInstance + "HL")
+                            self.championHLs[chInstance].lower()
                             self.championHLs[chInstance].show()
 
 
