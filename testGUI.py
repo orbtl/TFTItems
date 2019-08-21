@@ -719,6 +719,7 @@ class Ui_MainWindow(object):
         def clearInventory():
             clearBase()
             clearDouble()
+            clearChampions()
 
         def clearBase():
             for buttonKey in self.inventoryButtons:
@@ -732,12 +733,15 @@ class Ui_MainWindow(object):
             self.doubleInventory = []
             self.doubleButtons = {}
 
-        #def clearChampions():
-
+        def clearChampions():
+            for championKey in self.champions:
+                self.champions[championKey].deleteLater()
+            self.champions = {}
 
 
         def craftItems():
             clearDouble()
+            clearChampions()
             count = 0
             for i in range((len(self.userInventory) - 1)):
                 for j in range(i+1, len(self.userInventory)):
