@@ -476,6 +476,16 @@ class Ui_MainWindow(object):
         self.championRecMax = 0
         self.championTopRecs = []
         self.championHLs = {}
+        self.highlightColors = {
+            0: [255, 0, 0],
+            1: [255, 128, 0],
+            2: [255, 255, 0],
+            3: [0, 255, 0],
+            4: [0, 255, 255],
+            5: [255, 0, 255],
+            6: [0, 0, 255],
+            8: [255, 255, 255],
+        }
 
 
 
@@ -796,7 +806,10 @@ class Ui_MainWindow(object):
                         if self.championTopRecs[i] in chInstance:
                             self.championHLs[chInstance] = QtWidgets.QLabel(self.centralwidget)
                             self.championHLs[chInstance].setGeometry(QtCore.QRect((self.champions[chInstance].geometry().x() - 2), (self.champions[chInstance].geometry().y() - 2), 50, 50))
-                            self.championHLs[chInstance].setStyleSheet("background-color: rgb(255, 127, 0);")
+                            if i <= 8:
+                                self.championHLs[chInstance].setStyleSheet(f"background-color: rgb({self.highlightColors[i][0]}, {self.highlightColors[i][1]}, {self.highlightColors[i][2]});") #make different highlight colors for each champion
+                            if i > 8:
+                                self.championHLs[chInstance].setStyleSheet(f"background-color: rgb({int(self.highlightColors[i%10][0] / 2)}, {int(self.highlightColors[i%10][1] / 2)}, {int(self.highlightColors[i%10][2] / 2)});") #make darker highlight colors for too many champions
                             self.championHLs[chInstance].setObjectName(chInstance + "HL")
                             self.championHLs[chInstance].lower()
                             self.championHLs[chInstance].show()
