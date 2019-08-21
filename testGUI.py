@@ -473,6 +473,8 @@ class Ui_MainWindow(object):
         self.champions = {}
         self.championRecCount = {}
         self.craftCounter = 0
+        self.championRecMax = 0
+        self.championTopRecs = []
 
 
 
@@ -743,14 +745,13 @@ class Ui_MainWindow(object):
         def craftItems():
             clearDouble()
             clearChampions()
+            self.championRecCount = {}
             self.craftCounter = 0
             for i in range((len(self.userInventory) - 1)):
                 for j in range(i+1, len(self.userInventory)):
                     if (self.userInventory[i] + self.userInventory[j]) not in self.doubleInventory: #no duplicate completed items
                         craftedItem = self.userInventory[i] + self.userInventory[j]
-                        print(craftedItem) #debugging
                         self.doubleInventory.append(craftedItem)
-                        print(self.doubleInventory) #debugging
                         self.doubleButtons[craftedItem] = QtWidgets.QToolButton(self.centralwidget)
                         self.doubleButtons[craftedItem].setGeometry(QtCore.QRect(10, ((self.craftCounter * 50) + 180), 46, 46)) #adds 50 pixels vertically per item
                         self.doubleButtons[craftedItem].setToolTip(self.fullItems[craftedItem]["name"])
@@ -760,6 +761,7 @@ class Ui_MainWindow(object):
                         self.doubleButtons[craftedItem].show()
                         craftChampions(craftedItem, self.craftCounter)
                         self.craftCounter += 1
+            recChampions()
 
         def craftChampions(itemCode, itemCount):
             champCount = 0
@@ -777,17 +779,23 @@ class Ui_MainWindow(object):
                     self.champions[chName + str(itemCount)].setObjectName(chName + str(itemCount))
                     self.champions[chName + str(itemCount)].show()
                     champCount += 1
+                    if chName not in self.championRecCount:
+                        self.championRecCount[chName] = 0
+                    self.championRecCount[chName] += 1
+
+        def recChampions():
+            print(self.championRecCount) #debugging
+            self.championRecMax = max(list(self.championRecCount.values()))
+            for champRec, chValue in self.championRecCount.items():
+                if chValue == self.championRecMax:
+                    self.championTopRecs.append(champRec)
+
+
+                    
 
 
 
             
-
-
-
-
-
-
-
 
         self.retranslateUi(MainWindow)
         self.buttonQuit.clicked.connect(MainWindow.close)
