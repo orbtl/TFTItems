@@ -188,9 +188,9 @@ class Ui_MainWindow(object):
         icon14 = QtGui.QIcon()
         icon14.addPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Hextech_Gunblade_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Sword_Of_The_Divine_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Sword_of_the_Divine_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Youmous_Ghostblade_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Youmuus_Ghostblade_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon17 = QtGui.QIcon()
         icon17.addPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Spear_of_Shojin_item.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon18 = QtGui.QIcon()
@@ -644,66 +644,6 @@ class Ui_MainWindow(object):
         font.setPointSize(7)
         self.label_10.setFont(font)
         self.label_10.setObjectName("label_10")
-        self.exCompItem_0 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_0.setEnabled(True)
-        self.exCompItem_0.setGeometry(QtCore.QRect(10, 180, 46, 46))
-        self.exCompItem_0.setText("")
-        self.exCompItem_0.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_0.setObjectName("exCompItem_0")
-        self.exCompItem_1 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_1.setEnabled(True)
-        self.exCompItem_1.setGeometry(QtCore.QRect(10, 230, 46, 46))
-        self.exCompItem_1.setText("")
-        self.exCompItem_1.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_1.setObjectName("exCompItem_1")
-        self.exCompItem_2 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_2.setEnabled(True)
-        self.exCompItem_2.setGeometry(QtCore.QRect(10, 280, 46, 46))
-        self.exCompItem_2.setText("")
-        self.exCompItem_2.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_2.setObjectName("exCompItem_2")
-        self.exCompItem_3 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_3.setEnabled(True)
-        self.exCompItem_3.setGeometry(QtCore.QRect(10, 330, 46, 46))
-        self.exCompItem_3.setText("")
-        self.exCompItem_3.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_3.setObjectName("exCompItem_3")
-        self.exCompItem_4 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_4.setEnabled(True)
-        self.exCompItem_4.setGeometry(QtCore.QRect(10, 380, 46, 46))
-        self.exCompItem_4.setText("")
-        self.exCompItem_4.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_4.setObjectName("exCompItem_4")
-        self.exCompItem_5 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_5.setEnabled(True)
-        self.exCompItem_5.setGeometry(QtCore.QRect(10, 430, 46, 46))
-        self.exCompItem_5.setText("")
-        self.exCompItem_5.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_5.setObjectName("exCompItem_5")
-        self.exCompItem_6 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_6.setEnabled(True)
-        self.exCompItem_6.setGeometry(QtCore.QRect(10, 480, 46, 46))
-        self.exCompItem_6.setText("")
-        self.exCompItem_6.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_6.setObjectName("exCompItem_6")
-        self.exCompItem_7 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_7.setEnabled(True)
-        self.exCompItem_7.setGeometry(QtCore.QRect(10, 530, 46, 46))
-        self.exCompItem_7.setText("")
-        self.exCompItem_7.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_7.setObjectName("exCompItem_7")
-        self.exCompItem_8 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_8.setEnabled(True)
-        self.exCompItem_8.setGeometry(QtCore.QRect(10, 580, 46, 46))
-        self.exCompItem_8.setText("")
-        self.exCompItem_8.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_8.setObjectName("exCompItem_8")
-        self.exCompItem_9 = QtWidgets.QLabel(self.centralwidget)
-        self.exCompItem_9.setEnabled(True)
-        self.exCompItem_9.setGeometry(QtCore.QRect(10, 630, 46, 46))
-        self.exCompItem_9.setText("")
-        self.exCompItem_9.setPixmap(QtGui.QPixmap(":/imgCombined/img/combined/Blade_of_the_Ruined_King_item.png"))
-        self.exCompItem_9.setObjectName("exCompItem_9")
         self.buttonReset = QtWidgets.QToolButton(self.centralwidget)
         self.buttonReset.setGeometry(QtCore.QRect(520, 10, 71, 61))
 
@@ -773,21 +713,38 @@ class Ui_MainWindow(object):
             self.inventoryButtons[inventoryButtonID].setObjectName(inventoryButtonID)
             self.inventoryButtons[inventoryButtonID].show()
             self.userInventory.sort()
+            print(self.userInventory) #for debugging
 
         def clearInventory():
+            clearBase()
+            clearDouble()
+
+        def clearBase():
             for buttonKey in self.inventoryButtons:
                 self.inventoryButtons[buttonKey].deleteLater()
             self.inventoryButtons = {}
             self.userInventory = []
+
+        def clearDouble():
+            for doubleKey in self.doubleButtons:
+                self.doubleButtons[doubleKey].deleteLater()
             self.doubleInventory = []
+            self.doubleButtons = {}
+
+        #def clearChampions():
+
+
 
         def craftItems():
+            clearDouble()
             count = 0
-            for i in range(len(self.userInventory)):
+            for i in range((len(self.userInventory) - 1)):
                 for j in range(i+1, len(self.userInventory)):
-                    if (self.userInventory[i] + self.userInventory[j]) not in self.doubleInventory:
+                    if (self.userInventory[i] + self.userInventory[j]) not in self.doubleInventory: #no duplicate completed items
                         craftedItem = self.userInventory[i] + self.userInventory[j]
+                        print(craftedItem) #debugging
                         self.doubleInventory.append(craftedItem)
+                        print(self.doubleInventory) #debugging
                         self.doubleButtons[craftedItem] = QtWidgets.QToolButton(self.centralwidget)
                         self.doubleButtons[craftedItem].setGeometry(QtCore.QRect(10, ((count * 50) + 180), 46, 46)) #adds 50 pixels vertically per item
                         self.doubleButtons[craftedItem].setToolTip(self.fullItems[craftedItem]["name"])
@@ -857,7 +814,7 @@ import TFTItems_rc
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QApplication(sys.argv)x
+    app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
